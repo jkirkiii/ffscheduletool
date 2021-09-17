@@ -5,6 +5,15 @@ import player as p
 userTeam = t.Team()
 entry = ''
 gamePlayerCount = {}
+
+def playerEntry():
+    player = p.Player(name=input('Enter player name: '))
+    player.team(input('Enter player team: '))
+    player.position(input('Enter player position: '))
+    print(player)
+    userTeam.addPlayer(player)    
+
+
 week2 = schedule.Schedule(name="Week 2", games=( ('NYG','WAS'), ('CIN','CHI'), ('HOU','CLE'), ('LAR','IND'),
                                         ('BUF','MIA'), ('NE','NYJ'), ('SF','PHI'), ('LV','PIT'),
                                         ('NO','CAR'), ('DEN','JAC'), ('MIN','ARI'), ('ATL','TB'),
@@ -13,12 +22,8 @@ week2 = schedule.Schedule(name="Week 2", games=( ('NYG','WAS'), ('CIN','CHI'), (
 userTeam.name(input('Enter your team name: '))
 
 while entry != 'q':
-    player = p.Player(name=input('Enter player name: '))
-    player.team(input('Enter player team: '))
-    player.position(input('Enter player position: '))
-    print(player)
-    userTeam.addPlayer(player)
-    entry = input('Q to quit: ')
+    playerEntry()
+    entry = input('Press \'q\' to quit, or any other key to enter another player: ')
 
 print(userTeam)
 
