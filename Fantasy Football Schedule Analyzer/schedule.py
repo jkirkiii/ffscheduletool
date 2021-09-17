@@ -10,7 +10,7 @@ class Schedule:
     
     def __init__(self, **kwargs):
         self._name = kwargs['name'] if 'name' in kwargs else None
-        self._games = kwargs['games'] if 'games' in kwargs else None
+        self._games = kwargs['games'] if 'games' in kwargs else []
         
     def name(self, n = None):
         if n: self._name = n
@@ -34,7 +34,7 @@ class Schedule:
                 self.games().pop(self.games().index(g))
                 print(f'{game} has been removed.\n')
                 return
-        print(f'{game} not found.')
+        print(f'{game} not found.\n')
     
     def abbrev(self):
         output = f'{self.name()}\n'
@@ -49,7 +49,7 @@ class Schedule:
         return output
     
 if __name__ == '__main__':
-    week1 = Schedule(name='Week 1', games=[ ('DEN','NYG'), ('BAL','LV'), ('KC','CLE')])
+    week1 = Schedule(name='Week 1')
     print(week1.abbrev())
     week1.addGame('WAS','NYG')
     print(week1.abbrev())
