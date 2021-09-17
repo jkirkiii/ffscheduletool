@@ -17,7 +17,7 @@ class Player:
         return self._team
     
     def __str__(self):
-        return f'Name: {self.name()}\nPosition: {self.position()}\nTeam: {self.team()}'
+        return f'\nName: {self.name()}\nPosition: {self.position()}\nTeam: {self.team()}'
     
 if __name__ == '__main__':
     p1 = Player(name='Kyler Murray', position='QB', team='Arizona Cardinals')

@@ -20,6 +20,22 @@ class Schedule:
         if g: self._games = g
         return self._games
     
+    def addGame(self, home, away):
+        for g in self.games():
+            if g == (home, away):
+                print('Game is already on the schedule!\n')
+                return
+        self.games().append((home, away))
+        print('Game added!\n')
+
+    def removeGame(self, game):
+        for g in self.games():
+            if g == game:
+                self.games().pop(self.games().index(g))
+                print(f'{game} has been removed.\n')
+                return
+        print(f'{game} not found.')
+    
     def abbrev(self):
         output = f'{self.name()}\n'
         for g in self.games():
@@ -33,6 +49,11 @@ class Schedule:
         return output
     
 if __name__ == '__main__':
-    week1 = Schedule(name='Week 1', games=( ('DEN','NYG'), ('BAL','LV'), ('KC','CLE')))
-    print(week1)
+    week1 = Schedule(name='Week 1', games=[ ('DEN','NYG'), ('BAL','LV'), ('KC','CLE')])
+    print(week1.abbrev())
+    week1.addGame('WAS','NYG')
+    print(week1.abbrev())
+    week1.addGame('DEN','NYG')
+    print(week1.abbrev())
+    week1.removeGame(('BAL','LV'))
     print(week1.abbrev())
